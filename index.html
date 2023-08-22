@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>form validation</title>
+</head>
+
+<body>
+    <section class="form-section">
+      <div class="container">
+        <div class="row bg-primary-blue">
+          <div class="col-md-4">
+            <h2 class="big-text txt-white">Preencha o formulário para agendar uma conversa com nossos especialistas</h2>
+          </div>
+
+          <div class="col-md-4">
+            <form id="hsForm">
+              <div class="mb-3">
+                <label for="nameInput" class="form-label">nome <span class="error-msg">*</span></label>
+                <input type="text" class="name-input form-control input-form-validate" id="nameInput" aria-describedby="nameHelp" onkeyup="validateName()" required>
+                <span id="name-error" class="error-msg"></span>
+              </div>
+  
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">email <span class="error-msg">*</span></label>
+                <input type="email" class="email-input form-control input-form-validate" id="emailInput" aria-describedby="emailHelp" onkeyup="emailValidate()" required>
+                <span id="email-error" class="error-msg"></span>
+              </div>
+              
+              <div class="mb-3">
+                  <label for="inputPhone" class="form-label">telefone <span class="error-msg">*</span></label>
+                  <input type="tel" maxlength="15" inputmode="tel" autocomplete="tel" onkeyup="phoneValidate()" onkeypress="handlePhone(event)" class="phone-input form-control input-form-validate" id="phoneInput" aria-describedby="telHelp" required>
+                  <span id="phone-error" class="error-msg"></span>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="companyNameInput" class="form-label">nome da empresa <span class="error-msg">*</span></label>
+                  <input type="text" class="company-name-input form-control input-form-validate" id="companyNameInput" aria-describedby="nameHelp" required>
+                  <span id="company-name-error" class="error-msg"></span>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="companySizeInput" class="form-label">tamanho da empresa <span class="error-msg">*</span></label>
+                  <input type="text" class="company-size-name-input form-control input-form-validate" id="companyNameInput" aria-describedby="nameHelp" required>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="websiteInput" class="form-label">site da empresa <span class="error-msg">*</span></label>
+                  <input type="text" class="website-input form-control input-form-validate" onkeyup="websiteValidate()" id="websiteInput" required>
+                  <span id="company-website-error" class="error-msg"></span>
+                </div>  
+              <button type="submit" class="btn btn-primary" >Agendar bate-papo</button>
+            </form>
+
+          </div>
+        
+        </div>
+      </div>
+
+    </section>
+    <p id="error-msg"></p>
+    <script src="main.js"></script>
+
+</body>
+</html>
