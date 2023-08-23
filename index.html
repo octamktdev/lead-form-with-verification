@@ -20,25 +20,25 @@
             <form id="hsForm">
               <div class="mb-3">
                 <label for="nameInput" class="form-label">nome <span class="error-msg">*</span></label>
-                <input type="text" class="name-input form-control input-form-validate" id="nameInput" aria-describedby="nameHelp" onkeyup="validateName()" required>
+                <input type="text" class="name-input form-control input-form-validate" id="nameInput" placeholder="Digite seu nome" aria-describedby="nameHelp" onkeyup="validateName()" required>
                 <span id="name-error" class="error-msg"></span>
               </div>
   
               <div class="mb-3">
-                <label for="emailInput" class="form-label">email <span class="error-msg">*</span></label>
-                <input type="email" class="email-input form-control input-form-validate" id="emailInput" aria-describedby="emailHelp" onkeyup="emailValidate()" required>
+                <label for="emailInput" class="form-label">email corporativo <span class="error-msg">*</span></label>
+                <input type="email" class="email-input form-control input-form-validate" id="emailInput" aria-describedby="emailHelp" placeholder="seunome@empresa.com" onkeyup="emailValidate()" required>
                 <span id="email-error" class="error-msg"></span>
               </div>
               
               <div class="mb-3">
                   <label for="inputPhone" class="form-label">telefone <span class="error-msg">*</span></label>
-                  <input type="tel" maxlength="15" inputmode="tel" autocomplete="tel" onkeyup="phoneValidate()" onkeypress="handlePhone(event)" class="phone-input form-control input-form-validate" id="phoneInput" aria-describedby="telHelp" required>
+                  <input type="tel" maxlength="15" inputmode="tel" autocomplete="tel" onkeyup="phoneValidate()" onkeypress="handlePhone(event)" placeholder="(DDD) 9999-999" class="phone-input form-control input-form-validate" id="phoneInput" aria-describedby="telHelp" required>
                   <span id="phone-error" class="error-msg"></span>
                 </div>
                 
                 <div class="mb-3">
                   <label for="companyNameInput" class="form-label">nome da empresa <span class="error-msg">*</span></label>
-                  <input type="text" class="company-name-input form-control input-form-validate" id="companyNameInput" aria-describedby="nameHelp" required>
+                  <input type="text" class="company-name-input form-control input-form-validate" id="companyNameInput" placeholder="Digite o nome da empresa" aria-describedby="nameHelp" required>
                   <span id="company-name-error" class="error-msg"></span>
                 </div>
   
@@ -49,7 +49,7 @@
   
                 <div class="mb-3">
                   <label for="websiteInput" class="form-label">site da empresa <span class="error-msg">*</span></label>
-                  <input type="text" class="website-input form-control input-form-validate" onkeyup="websiteValidate()" id="websiteInput" required>
+                  <input type="text" class="website-input form-control input-form-validate" onkeyup="websiteValidate()" placeholder="nomedaempresa.com" id="websiteInput" required>
                   <span id="company-website-error" class="error-msg"></span>
                 </div>  
               <button type="submit" class="btn btn-primary" >Agendar bate-papo</button>

@@ -18,6 +18,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+::placeholder{
+    font-size: .8em;
+    opacity: .8;
+}
+
 .form-section
 .container .row{
     display: flex;
@@ -55,7 +60,7 @@
 }
 
 .mb-3 .form-label{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
     line-height: 150%;
     padding-bottom: 0.25rem;
@@ -68,10 +73,10 @@
     padding: 0.25em 0.5em;
     background-color: #fff;
     border: 1px solid var(--input-border);
-    border-radius: 0.625rem;
+    border-radius: 0.525rem;
     width: 100%;
     height: 4.25rem;
-    box-shadow: 0px 0px 3px 0px rgba(24, 116, 226, 0.45);
+    /*box-shadow: 0px 0px 3px 0px rgba(24, 116, 226, 0.45);*/
 
     transition: 180ms box-shadow ease-in-out;
   }  
@@ -86,7 +91,7 @@
 
 #hsForm{
     padding: 2rem;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 5px;
 
     grid-auto-flow: row;
