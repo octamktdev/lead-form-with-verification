@@ -16,6 +16,7 @@ var emailError = document.getElementById('email-error')
 var phoneError = document.getElementById('phone-error')
 var companyNameError = document.getElementById('company-name-error')
 var companyWebsiteError = document.getElementById('company-website-error')
+var formSubmitError = document.getElementById('form-submit-error');
 
 function validateName(){
   var name = document.getElementById('nameInput').value;
@@ -24,10 +25,11 @@ function validateName(){
     nameError.innerHTML = 'O campo nome é obrigatório'
     return false
   }
-  if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+  if(!name.match(/[a-zzéúíóáèùìòàõãñêûîôâëyüïöäA-ZÉÚÍÓÁÈÙÌÒÀÕÃÑÊÛÎÔÂËYÜÏÖÄ]* [a-zzéúíóáèùìòàõãñêûîôâëyüïöäA-ZÉÚÍÓÁÈÙÌÒÀÕÃÑÊÛÎÔÂËYÜÏÖÄ](.*)/)){
     nameError.innerHTML = 'Digite seu sobrenome'
     return false
   }
+
   nameError.innerHTML = '<img src="/img/check-circle.svg">'
   return true
 }
@@ -59,8 +61,30 @@ function phoneValidate(){
     phoneError.innerHTML = 'Digite um número de telefone válido'
     return false
   }
+  if(phone.match(/\b(\d)\1+\b/)){
+    phoneError.innerHTML = 'Digite um numero valido'
+    return false
+  }
   phoneError.innerHTML = '<img src="/img/check-circle.svg">'
   return true
+}
+
+function companyNameValidate(){
+  var companyName = document.getElementById('companyNameInput').value;
+  
+  if (companyName.length == 0){
+    companyNameError.innerHTML = 'O campo nome da empresa é obrigatório'
+    return false
+  }
+
+  //if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+    //nameError.innerHTML = 'Digite seu sobrenome'
+    //return false
+  //}
+
+  companyNameError.innerHTML = '<img src="/img/check-circle.svg">'
+  return true
+
 }
 
 function websiteValidate(){
@@ -75,6 +99,14 @@ function websiteValidate(){
     return false
   }
   companyWebsiteError.innerHTML = '<img src="/img/check-circle.svg">'
+}
+
+function validateForm(){
+  if(!validateName() || !emailValidate() || !phoneValidate() || !companyNameValidate())
+  {
+    formSubmitError.innerHTML = "Preencha os campos corretamente"
+    return false
+  }
 }
 
 /*const phoneNumberInput = document.getElementById('inputPhone')
@@ -161,3 +193,112 @@ if (formValidate){
 }
 */
 
+var nameError = document.getElementById('name-error')
+var emailError = document.getElementById('email-error')
+var phoneError = document.getElementById('phone-error')
+var companyNameError = document.getElementById('company-name-error')
+var companyWebsiteError = document.getElementById('company-website-error')
+var formSubmitError = document.getElementById('form-submit-error');
+var form = document.getElementById('wf-form-mask_form');
+var submitButton = document.getElementById('btn_enviar_mask_form')
+
+let nameValidate = document.getElementById('nameInput');
+
+nameValidate.addEventListener('keyup', ()=>{
+  var name = document.getElementById('nameInput').value;
+
+  if (name.length == 0){
+    nameError.innerHTML = 'O campo nome é obrigatório'
+    return false
+  }
+  if(!name.match(/[a-zzéúíóáèùìòàõãñêûîôâëyüïöäA-ZÉÚÍÓÁÈÙÌÒÀÕÃÑÊÛÎÔÂËYÜÏÖÄ]* [a-zzéúíóáèùìòàõãñêûîôâëyüïöäA-ZÉÚÍÓÁÈÙÌÒÀÕÃÑÊÛÎÔÂËYÜÏÖÄ](.*)/)){
+    nameError.innerHTML = 'Digite seu sobrenome'
+    return false
+  }
+  nameError.innerHTML = '<img src="https://uploads-ssl.webflow.com/64919b461dc7056288293376/64f0d354288cffd235c59e1f_check-circle.svg">'
+  return true
+})
+
+let emailValidate = document.getElementById('emailInput')
+
+emailValidate.addEventListener('keyup', ()=>{
+  var email = document.getElementById('emailInput').value;
+
+  if(email.length == 0){
+    emailError.innerHTML = 'O campo email é obrigatório'
+    return false
+  }
+  if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+    emailError.innerHTML = 'Digite um endereço de email válido'
+    return false
+  }
+  emailError.innerHTML = '<img src="https://uploads-ssl.webflow.com/64919b461dc7056288293376/64f0d354288cffd235c59e1f_check-circle.svg">'
+  return true
+
+})
+
+let phoneValidate = document.getElementById('phoneInput');
+
+var iti = intlTelInput(phoneValidate, {
+  initialCountry: "br",
+  placeholderNumberType: 'FIXED_LINE',
+});
+
+var updateInputValue = function (event) {
+       dialCode.value = "+" + iti.getSelectedCountryData().dialCode;
+};
+phoneValidate.addEventListener('phoneValidate', updateInputValue, false);
+phoneValidate.addEventListener('countrychange', updateInputValue, false);
+
+phoneValidate.addEventListener('keyup', ()=>{
+  var phone = document.getElementById('phoneInput').value;
+  
+  if(phone.length == 0){
+    phoneError.innerHTML = 'O campo telefone é obrigatório'
+    return false;
+  }
+  if(!phone.match(/^[0-9]{7,13}$/)){
+    phoneError.innerHTML = 'Digite um número de telefone válido'
+    return false
+  }
+  if(phone.match(/\b(\d)\1+\b/)){
+    phoneError.innerHTML = 'Digite um numero valido'
+    return false
+  }
+  /*if(!phone.match(/[0-9]/)){
+    phoneError.innerHTML = 'Apenas caracteres númericos são permitidos'
+    return false
+  }*/
+  phoneError.innerHTML = '<img src="https://uploads-ssl.webflow.com/64919b461dc7056288293376/64f0d354288cffd235c59e1f_check-circle.svg">'
+  return true
+})
+
+let companyNameValidate = document.getElementById('companyNameInput')
+
+companyNameValidate.addEventListener('keyup', ()=>{
+  var companyName = document.getElementById('companyNameInput').value;
+  
+  if (companyName.length == 0){
+    companyNameError.innerHTML = 'O campo nome da empresa é obrigatório'
+    return false
+  }
+
+  //if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+    //nameError.innerHTML = 'Digite seu sobrenome'
+    //return false
+  //}
+
+  companyNameError.innerHTML = '<img src="https://uploads-ssl.webflow.com/64919b461dc7056288293376/64f0d354288cffd235c59e1f_check-circle.svg">'
+  return true
+
+})
+
+
+ function validateForm(){
+  if(!name || !email || !phone || !companyName)
+  {
+  formSubmitError.innerHTML = "Preencha os campos corretamente"
+   return false
+  }
+  return true
+ }

@@ -13,7 +13,7 @@
       <div class="container">
         <div class="row bg-primary-blue">
           <div class="col-md-4">
-            <h2 class="big-text txt-white">Preencha o formulário para agendar uma conversa com nossos especialistas</h2>
+            <h2 class="big-text txt-white">[Att] Preencha o formulário para agendar uma conversa com nossos especialistas</h2>
           </div>
 
           <div class="col-md-4">
@@ -32,37 +32,94 @@
               
               <div class="mb-3">
                   <label for="inputPhone" class="form-label">telefone <span class="error-msg">*</span></label>
-                  <input type="tel" maxlength="15" inputmode="tel" autocomplete="tel" onkeyup="phoneValidate()" onkeypress="handlePhone(event)" placeholder="(DDD) 9999-999" class="phone-input form-control input-form-validate" id="phoneInput" aria-describedby="telHelp" required>
+                  <input type="tel" maxlength="15" inputmode="tel" autocomplete="tel" onkeyup="phoneValidate()" onkeypress="handlePhone(event)" placeholder="(DDD) 9999-9999" class="phone-input form-control input-form-validate" id="phoneInput" aria-describedby="telHelp" required>
                   <span id="phone-error" class="error-msg"></span>
-                </div>
+              </div>
                 
-                <div class="mb-3">
+              <div class="mb-3">
                   <label for="companyNameInput" class="form-label">nome da empresa <span class="error-msg">*</span></label>
-                  <input type="text" class="company-name-input form-control input-form-validate" id="companyNameInput" placeholder="Digite o nome da empresa" aria-describedby="nameHelp" required>
+                  <input type="text" class="company-name-input form-control input-form-validate" id="companyNameInput" onkeyup="companyNameValidate()" placeholder="Digite o nome da empresa" aria-describedby="nameHelp" required>
                   <span id="company-name-error" class="error-msg"></span>
-                </div>
+              </div>
   
                 <div class="mb-3">
                   <label for="companySizeInput" class="form-label">tamanho da empresa <span class="error-msg">*</span></label>
-                  <input type="text" class="company-size-name-input form-control input-form-validate" id="companyNameInput" aria-describedby="nameHelp" required>
+                  <select class="company-size-name-input form-control input-form-validate" id="companyNameInput" aria-describedby="nameHelp" required aria-label="Default select example">
+                    <option selected>Selecione</option>
+                    <option value="1">1 funcionário</option>
+                    <option value="2">de 2 a 5 funcionários</option>
+                    <option value="3">de 6 a 10 funcionários</option>
+                    <option value="4">de 11 a 50 funcionários</option>
+                    <option value="5">de 50 a 100 funcionários</option>
+                    <option value="6">de 100 a 250 funcionários</option>
+                    <option value="7">de 250 a 500 funcionários</option>
+                    <option value="8">acima de 500 funcionários</option>
+                    <option value="9">1000+</option>
+                  </select>         
                 </div>
-  
+                
+                <!--
                 <div class="mb-3">
                   <label for="websiteInput" class="form-label">site da empresa <span class="error-msg">*</span></label>
                   <input type="text" class="website-input form-control input-form-validate" onkeyup="websiteValidate()" placeholder="nomedaempresa.com" id="websiteInput" required>
                   <span id="company-website-error" class="error-msg"></span>
-                </div>  
-              <button type="submit" class="btn btn-primary" >Agendar bate-papo</button>
-            </form>
+                </div>
+                -->
 
+              <div class="mb-3">
+                <label for="check-input" class="form-label">Para qual área você está procurando uma solução? <span class="error-msg">*</span></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Vendas
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Pós-vendas
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="dorEmVendas" class="form-label">Qual a sua principal dor de vendas hoje? <span class="error-msg">*</span></label>
+                <select class="company-size-name-input form-control input-form-validate" id="companyNameInput" aria-describedby="nameHelp" required aria-label="Default select example">
+                  <option selected>Selecione</option>
+                  <option value="1">Descentralização de canais de contato</option>
+                  <option value="2">Baixa eficiencia e produtividade</option>
+                  <option value="3">Falta de controle nas conversas do time</option>
+                  <option value="4">Falta de qualificação automática de leads</option>
+                  <option value="5">Falta de dados e controle de gestão</option>
+                </select>
+                </div>
+            
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2">
+                  <label class="form-check-label form-label" for="flexCheckChecked2">
+                    Concordo em receber outras comunicações da Octadesk
+                </label>
+                </div>
+              </div>
+
+              <div class="send-box">
+                <button disabled type="submit" onclick="return validateForm()" class="btn btn-primary" >Agendar bate-papo</button>
+                <span id="form-submit-error" class="error-msg"></span>
+              </div>
+             
+              
+            </form>
           </div>
-        
         </div>
       </div>
-
     </section>
+    <!--
     <p id="error-msg"></p>
+    -->
     <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.min.js"></script>
 
 </body>
 </html>
